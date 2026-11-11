@@ -1,0 +1,79 @@
+SOFTWARE REQUIREMENTS SPECIFICATION:
+— Personal Habit Tracker
+1. Project Overview
+The goal is to develop a desktop application that helps users build and maintain daily habits. The application should allow users to create habits, track daily progress, view statistics, and maintain a history of completed activities.
+
+The application is intended for personal offline use and should provide a simple and intuitive interface.
+2. Habit Management
+The user must be able to create a habit by providing:
+- Habit name (required)
+- Category (optional)
+- Target frequency (daily or weekly)
+- Optional description
+The user must be able to edit and delete existing habits.
+
+The application must prevent creating two habits with the same name.
+
+Habit names cannot be empty.
+3. Daily Tracking
+The user must be able to mark a habit as completed for the current day.
+
+A habit cannot be marked as completed more than once on the same day.
+
+The user must also be able to undo today's completion if it was recorded by mistake.
+
+The application must automatically record the completion date.
+4. Streaks and Statistics
+The application must calculate:
+- Current streak
+- Longest streak
+- Total completions
+- Completion rate
+The dashboard should display:
+- Total active habits
+- Habits completed today
+- Habits missed today
+- Best current streak
+Statistics must update immediately after any change.
+5. Calendar History
+The user must be able to view a calendar showing completed and missed days for each habit.
+
+Past records must remain available even after editing a habit's description or category.
+
+Users cannot modify completion records older than seven days.
+6. Notifications
+The application should allow users to configure a daily reminder time.
+
+If reminders are disabled, no notification should appear.
+
+Changing the reminder time should apply immediately.
+7. Data Storage
+All data must be stored locally so that it remains available after restarting the application.
+
+The application should recover previously saved data automatically when launched.
+
+A failed operation must not leave the data in an inconsistent state.
+8. User Interface
+The application should include separate sections for:
+- Dashboard
+- Habits
+- Calendar
+- Statistics
+- Settings
+Successful operations should display confirmation messages.
+
+Validation errors should clearly explain what went wrong.
+9. Technical Constraints
+- Desktop application.
+- Works without an Internet connection.
+- Local database for persistent storage.
+- Business logic, data access, and user interface should be separated.
+10. Acceptance Criteria
+The application is considered acceptable if a user can:
+- Create, edit, and delete habits.
+- Track daily completions.
+- View streaks and statistics.
+- Browse historical records.
+- Configure reminders.
+- Keep all data after restarting the application.
+- Experience correct validation for duplicate names, empty names, completion limits, and historical editing restrictions.

@@ -1,0 +1,12 @@
+[
+    {
+        "story_id": "US010",
+        "story_title": "Calculate longest streak",
+        "error": "Could not find the closing brace of the generated Java class."
+    },
+    {
+        "story_id": "US016",
+        "story_title": "Display best current streak",
+        "error": "Could not find the closing brace of the generated Java class."
+    }
+]

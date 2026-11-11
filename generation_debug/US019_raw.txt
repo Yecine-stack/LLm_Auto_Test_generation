@@ -1,0 +1,63 @@
+```java
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class HabitTrackerTest {
+
+    private HabitTracker habitTracker;
+
+    @BeforeEach
+    public void setUp() {
+        habitTracker = new HabitTracker();
+    }
+
+    @Test
+    public void US019_EnsurePastRecordsRemainAvailableAfterEditingDescription() {
+        // Create a habit
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Drink 8 glasses of water per day");
+
+        // Mark the habit as completed
+        habitTracker.markHabitCompleted("Drink Water");
+
+        // Edit the habit description
+        habitTracker.editHabitDescription("Drink Water", "Drink 10 glasses of water per day");
+
+        // Verify that the completion record is still available
+        assertTrue(habitTracker.isHabitCompleted("Drink Water"));
+    }
+
+    @Test
+    public void US019_EnsurePastRecordsRemainAvailableAfterEditingCategory() {
+        // Create a habit
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Drink 8 glasses of water per day");
+
+        // Mark the habit as completed
+        habitTracker.markHabitCompleted("Drink Water");
+
+        // Edit the habit category
+        habitTracker.editHabitCategory("Drink Water", "Wellness");
+
+        // Verify that the completion record is still available
+        assertTrue(habitTracker.isHabitCompleted("Drink Water"));
+    }
+
+    @Test
+    public void US019_EnsurePastRecordsRemainAvailableAfterDeletingAndRecreatingHabit() {
+        // Create a habit
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Drink 8 glasses of water per day");
+
+        // Mark the habit as completed
+        habitTracker.markHabitCompleted("Drink Water");
+
+        // Delete the habit
+        habitTracker.deleteHabit("Drink Water");
+
+        // Recreate the habit with the same name
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Drink 8 glasses of water per day");
+
+        // Verify that the completion record is still available
+        assertTrue(habitTracker.isHabitCompleted("Drink Water"));
+    }
+}
+```

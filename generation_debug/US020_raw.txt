@@ -1,0 +1,51 @@
+```java
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class HabitTrackerTest {
+
+    @Test
+    public void US020_ShouldRestrictEditingOfHistoricalRecords() {
+        // Assume HabitTracker is a class that manages habits
+        HabitTracker habitTracker = new HabitTracker();
+
+        // Create a habit
+        habitTracker.createHabit("Drink Water", "Daily");
+
+        // Mark the habit as completed
+        habitTracker.markHabitCompleted("Drink Water");
+
+        // Wait for more than 7 days
+        // (Assuming a method to simulate time passing)
+        habitTracker.advanceTimeByDays(8);
+
+        // Try to edit the habit's description
+        habitTracker.editHabitDescription("Drink Water", "Drink plenty of water");
+
+        // Verify that the habit's description is not changed
+        assertEquals("Drink Water", habitTracker.getHabitDescription("Drink Water"));
+    }
+
+    @Test
+    public void US020_ShouldAllowEditingOfRecentRecords() {
+        // Assume HabitTracker is a class that manages habits
+        HabitTracker habitTracker = new HabitTracker();
+
+        // Create a habit
+        habitTracker.createHabit("Drink Water", "Daily");
+
+        // Mark the habit as completed
+        habitTracker.markHabitCompleted("Drink Water");
+
+        // Wait for less than 7 days
+        // (Assuming a method to simulate time passing)
+        habitTracker.advanceTimeByDays(6);
+
+        // Try to edit the habit's description
+        habitTracker.editHabitDescription("Drink Water", "Drink plenty of water");
+
+        // Verify that the habit's description is changed
+        assertEquals("Drink plenty of water", habitTracker.getHabitDescription("Drink Water"));
+    }
+}
+```

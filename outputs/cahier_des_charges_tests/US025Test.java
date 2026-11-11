@@ -1,0 +1,95 @@
+package generated;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+
+public class US025Test {
+
+private HabitTracker habitTracker;
+
+    @BeforeEach
+    public void setUp() {
+        habitTracker = new HabitTracker();
+    }
+
+    @Test
+    public void US025_CreateHabit_Success() {
+        habitTracker.createHabit("Drink Water", "Daily");
+        assertTrue(habitTracker.getHabit("Drink Water").isPresent());
+    }
+
+    @Test
+    public void US025_CreateHabit_DuplicateName_Failure() {
+        habitTracker.createHabit("Drink Water", "Daily");
+        assertThrows(IllegalArgumentException.class, () -> habitTracker.createHabit("Drink Water", "Daily"));
+    }
+
+    @Test
+    public void US025_CreateHabit_EmptyName_Failure() {
+        assertThrows(IllegalArgumentException.class, () -> habitTracker.createHabit("", "Daily"));
+    }
+
+    @Test
+    public void US025_EditHabit_Success() {
+        habitTracker.createHabit("Drink Water", "Daily");
+        habitTracker.editHabit("Drink Water", "Drink Water Daily", "Daily");
+        assertTrue(habitTracker.getHabit("Drink Water Daily").isPresent());
+    }
+
+    @Test
+    public void US025_EditHabit_HabitNotFound_Failure() {
+        assertThrows(IllegalArgumentException.class, () -> habitTracker.editHabit("Drink Water", "Drink Water Daily", "Daily"));
+    }
+
+    @Test
+    public void US025_DeleteHabit_Success() {
+        habitTracker.createHabit("Drink Water", "Daily");
+        habitTracker.deleteHabit("Drink Water");
+        assertFalse(habitTracker.getHabit("Drink Water").isPresent());
+    }
+
+    @Test
+    public void US025_DeleteHabit_HabitNotFound_Failure() {
+        assertThrows(IllegalArgumentException.class, () -> habitTracker.deleteHabit("Drink Water"));
+    }
+
+    @Test
+    public void US025_MarkHabitCompleted_Success() {
+        habitTracker.createHabit("Drink Water", "Daily");
+        habitTracker.markHabitCompleted("Drink Water");
+        assertTrue(habitTracker.getHabit("Drink Water").get().isCompletedToday());
+    }
+
+    @Test
+    public void US025_MarkHabitCompleted_HabitNotFound_Failure() {
+        assertThrows(IllegalArgumentException.class, () -> habitTracker.markHabitCompleted("Drink Water"));
+    }
+
+    @Test
+    public void US025_MarkHabitCompleted_AlreadyCompleted_Failure() {
+        habitTracker.createHabit("Drink Water", "Daily");
+        habitTracker.markHabitCompleted("Drink Water");
+        assertThrows(IllegalArgumentException.class, () -> habitTracker.markHabitCompleted("Drink Water"));
+    }
+
+    @Test
+    public void US025_UnmarkHabitCompleted_Success() {
+        habitTracker.createHabit("Drink Water", "Daily");
+        habitTracker.markHabitCompleted("Drink Water");
+        habitTracker.unmarkHabitCompleted("Drink Water");
+        assertFalse(habitTracker.getHabit("Drink Water").get().isCompletedToday());
+    }
+
+    @Test
+    public void US025_UnmarkHabitCompleted_HabitNotFound_Failure() {
+        assertThrows(IllegalArgumentException.class, () -> habitTracker.unmarkHabitCompleted("Drink Water"));
+    }
+
+    @Test
+    public void US025_UnmarkHabitCompleted_NotCompleted_Failure() {
+        habitTracker.createHabit("Drink Water", "Daily");
+        assertThrows(IllegalArgumentException.class, () -> habitTracker.unmarkHabitCompleted("Drink Water"));
+    }
+
+}

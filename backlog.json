@@ -1,0 +1,201 @@
+{
+    "epics": [
+        {
+            "id": "E001",
+            "title": "Habit Management",
+            "user_stories": [
+                {
+                    "id": "US001",
+                    "title": "Create a habit",
+                    "description": "As a user, I want to create a habit by providing a name, category, target frequency, and optional description, so that I can start tracking my daily progress."
+                },
+                {
+                    "id": "US002",
+                    "title": "Edit a habit",
+                    "description": "As a user, I want to edit an existing habit's name, category, target frequency, and description, so that I can adjust my tracking as needed."
+                },
+                {
+                    "id": "US003",
+                    "title": "Delete a habit",
+                    "description": "As a user, I want to delete an existing habit, so that I can remove habits I no longer want to track."
+                },
+                {
+                    "id": "US004",
+                    "title": "Prevent duplicate habit names",
+                    "description": "As a user, I want to prevent creating two habits with the same name, so that I can avoid confusion and errors."
+                },
+                {
+                    "id": "US005",
+                    "title": "Ensure habit names are not empty",
+                    "description": "As a user, I want habit names to be non-empty, so that I can clearly identify my habits."
+                }
+            ]
+        },
+        {
+            "id": "E002",
+            "title": "Daily Tracking",
+            "user_stories": [
+                {
+                    "id": "US006",
+                    "title": "Mark a habit as completed",
+                    "description": "As a user, I want to mark a habit as completed for the current day, so that I can track my progress."
+                },
+                {
+                    "id": "US007",
+                    "title": "Undo today's completion",
+                    "description": "As a user, I want to undo today's completion if it was recorded by mistake, so that I can correct any errors."
+                },
+                {
+                    "id": "US008",
+                    "title": "Prevent multiple completions on the same day",
+                    "description": "As a user, I want to prevent marking a habit as completed more than once on the same day, so that I can accurately track my progress."
+                },
+                {
+                    "id": "US009",
+                    "title": "Automatically record completion date",
+                    "description": "As a user, I want the application to automatically record the completion date, so that I don't have to manually enter it."
+                }
+            ]
+        },
+        {
+            "id": "E003",
+            "title": "Streaks and Statistics",
+            "user_stories": [
+                {
+                    "id": "US010",
+                    "title": "Calculate current streak",
+                    "description": "As a user, I want the application to calculate my current streak, so that I can see how many consecutive days I have completed a habit."
+                },
+                {
+                    "id": "US011",
+                    "title": "Calculate longest streak",
+                    "description": "As a user, I want the application to calculate my longest streak, so that I can see the highest number of consecutive days I have completed a habit."
+                },
+                {
+                    "id": "US012",
+                    "title": "Calculate total completions",
+                    "description": "As a user, I want the application to calculate the total number of times I have completed a habit, so that I can see my overall progress."
+                },
+                {
+                    "id": "US013",
+                    "title": "Calculate completion rate",
+                    "description": "As a user, I want the application to calculate the completion rate, so that I can see the percentage of days I have completed a habit."
+                },
+                {
+                    "id": "US014",
+                    "title": "Display total active habits",
+                    "description": "As a user, I want the dashboard to display the total number of active habits, so that I can see how many habits I am currently tracking."
+                },
+                {
+                    "id": "US015",
+                    "title": "Display habits completed today",
+                    "description": "As a user, I want the dashboard to display the number of habits I have completed today, so that I can see my progress for the day."
+                },
+                {
+                    "id": "US016",
+                    "title": "Display habits missed today",
+                    "description": "As a user, I want the dashboard to display the number of habits I have missed today, so that I can see areas where I need improvement."
+                },
+                {
+                    "id": "US017",
+                    "title": "Display best current streak",
+                    "description": "As a user, I want the dashboard to display the best current streak, so that I can see my highest streak."
+                },
+                {
+                    "id": "US018",
+                    "title": "Update statistics immediately",
+                    "description": "As a user, I want the statistics to update immediately after any change, so that I can see the most up-to-date information."
+                }
+            ]
+        },
+        {
+            "id": "E004",
+            "title": "Calendar History",
+            "user_stories": [
+                {
+                    "id": "US019",
+                    "title": "View calendar showing completed and missed days",
+                    "description": "As a user, I want to view a calendar showing completed and missed days for each habit, so that I can see my progress over time."
+                },
+                {
+                    "id": "US020",
+                    "title": "Ensure past records remain available",
+                    "description": "As a user, I want past records to remain available even after editing a habit's description or category, so that I can review my history."
+                },
+                {
+                    "id": "US021",
+                    "title": "Restrict editing of historical records",
+                    "description": "As a user, I want to restrict editing of completion records older than seven days, so that I can maintain accurate historical data."
+                }
+            ]
+        },
+        {
+            "id": "E005",
+            "title": "Notifications",
+            "user_stories": [
+                {
+                    "id": "US022",
+                    "title": "Configure daily reminder time",
+                    "description": "As a user, I want to configure a daily reminder time, so that I don't forget to complete my habits."
+                },
+                {
+                    "id": "US023",
+                    "title": "Display reminder notification",
+                    "description": "As a user, I want the application to display a reminder notification at the configured time, so that I don't forget to complete my habits."
+                },
+                {
+                    "id": "US024",
+                    "title": "Disable notifications",
+                    "description": "As a user, I want to disable notifications if I don't want to be reminded, so that I can focus on my habits without interruptions."
+                },
+                {
+                    "id": "US025",
+                    "title": "Apply reminder time change immediately",
+                    "description": "As a user, I want the reminder time change to apply immediately, so that I can set a new reminder time without waiting for the next day."
+                }
+            ]
+        },
+        {
+            "id": "E006",
+            "title": "Data Storage",
+            "user_stories": [
+                {
+                    "id": "US026",
+                    "title": "Store data locally",
+                    "description": "As a user, I want all data to be stored locally, so that it remains available after restarting the application."
+                },
+                {
+                    "id": "US027",
+                    "title": "Recover previously saved data",
+                    "description": "As a user, I want the application to recover previously saved data automatically when launched, so that I don't lose any progress."
+                },
+                {
+                    "id": "US028",
+                    "title": "Handle failed operations",
+                    "description": "As a user, I want the application to handle failed operations without leaving data in an inconsistent state, so that I can continue using the application without issues."
+                }
+            ]
+        },
+        {
+            "id": "E007",
+            "title": "User Interface",
+            "user_stories": [
+                {
+                    "id": "US029",
+                    "title": "Include separate sections",
+                    "description": "As a user, I want the application to include separate sections for Dashboard, Habits, Calendar, Statistics, and Settings, so that I can easily access different features."
+                },
+                {
+                    "id": "US030",
+                    "title": "Display confirmation messages",
+                    "description": "As a user, I want successful operations to display confirmation messages, so that I know my actions have been completed."
+                },
+                {
+                    "id": "US031",
+                    "title": "Clearly explain validation errors",
+                    "description": "As a user, I want validation errors to clearly explain what went wrong, so that I can correct any issues."
+                }
+            ]
+        }
+    ]
+}

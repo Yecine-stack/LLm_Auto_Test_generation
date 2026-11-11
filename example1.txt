@@ -1,0 +1,339 @@
+[EPIC_START]
+ID: E001
+TITLE: Expense Management
+
+[USER_STORY_START]
+ID: US001
+TITLE: Add an expense
+DESCRIPTION: As a user, I want to add an expense, so that I can record my financial transactions.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US002
+TITLE: Edit an expense
+DESCRIPTION: As a user, I want to edit an expense, so that I can correct or update my financial records.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US003
+TITLE: Delete an expense
+DESCRIPTION: As a user, I want to delete an expense, so that I can remove incorrect or unnecessary records.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US004
+TITLE: Confirm expense deletion
+DESCRIPTION: As a user, I want to confirm the deletion of an expense, so that I do not accidentally remove important records.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E002
+TITLE: Category Management
+
+[USER_STORY_START]
+ID: US005
+TITLE: Create a custom category
+DESCRIPTION: As a user, I want to create a custom category, so that I can organize my expenses in a way that suits my needs.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US006
+TITLE: Rename a category
+DESCRIPTION: As a user, I want to rename a category, so that I can update the category name to reflect current circumstances.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US007
+TITLE: Delete a category
+DESCRIPTION: As a user, I want to delete a category, so that I can remove unused categories.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US008
+TITLE: Restrict category deletion
+DESCRIPTION: As a user, I want to prevent the deletion of a category with assigned expenses, so that I do not lose financial records.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US009
+TITLE: Prevent duplicate category names
+DESCRIPTION: As a user, I want to prevent the creation of categories with the same name, so that I can avoid confusion.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E003
+TITLE: Monthly Budgets
+
+[USER_STORY_START]
+ID: US010
+TITLE: Define a monthly budget
+DESCRIPTION: As a user, I want to define a monthly budget, so that I can set financial goals.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US011
+TITLE: Set category-specific budgets
+DESCRIPTION: As a user, I want to set category-specific budgets, so that I can allocate funds according to my priorities.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US012
+TITLE: Display spent and remaining budget
+DESCRIPTION: As a user, I want to see the amount spent and the remaining budget, so that I can monitor my financial progress.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US013
+TITLE: Display budget warnings
+DESCRIPTION: As a user, I want to be warned when spending reaches 80% of a budget, so that I can adjust my spending habits.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US014
+TITLE: Display budget exceedances
+DESCRIPTION: As a user, I want to be clearly informed when spending exceeds the budget, so that I can take corrective action.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US015
+TITLE: Prevent budget changes from modifying expenses
+DESCRIPTION: As a user, I want budget changes to not affect previously recorded expenses, so that I can maintain accurate financial records.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E004
+TITLE: Recurring Expenses
+
+[USER_STORY_START]
+ID: US016
+TITLE: Define a recurring expense
+DESCRIPTION: As a user, I want to define a recurring expense, so that I can automate my financial records.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US017
+TITLE: Pause a recurring expense
+DESCRIPTION: As a user, I want to pause a recurring expense, so that I can stop generating future records temporarily.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US018
+TITLE: Resume a recurring expense
+DESCRIPTION: As a user, I want to resume a recurring expense, so that I can continue generating records.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US019
+TITLE: Modify a recurring expense
+DESCRIPTION: As a user, I want to modify a recurring expense, so that I can update its details.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US020
+TITLE: Delete a recurring expense
+DESCRIPTION: As a user, I want to delete a recurring expense, so that I can remove unnecessary records.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US021
+TITLE: Generate expense records for recurring expenses
+DESCRIPTION: As a user, I want the application to generate expense records according to the configured recurrence, so that I have accurate financial records.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E005
+TITLE: Statistics and Reports
+
+[USER_STORY_START]
+ID: US022
+TITLE: View total expenses for the current month
+DESCRIPTION: As a user, I want to see the total expenses for the current month, so that I can track my spending.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US023
+TITLE: View total expenses for the previous month
+DESCRIPTION: As a user, I want to see the total expenses for the previous month, so that I can compare my spending habits.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US024
+TITLE: View remaining monthly budget
+DESCRIPTION: As a user, I want to see the remaining monthly budget, so that I can monitor my financial progress.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US025
+TITLE: View category with the highest spending
+DESCRIPTION: As a user, I want to see the category with the highest spending, so that I can identify areas for improvement.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US026
+TITLE: View expenses grouped by category
+DESCRIPTION: As a user, I want to view expenses grouped by category, so that I can analyze my spending by category.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US027
+TITLE: Compare spending between different months
+DESCRIPTION: As a user, I want to compare spending between different months, so that I can track my financial progress over time.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US028
+TITLE: Calculate category spending percentages
+DESCRIPTION: As a user, I want the application to calculate the percentage of total spending represented by each category, so that I can understand my spending distribution.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US029
+TITLE: Update statistics on expense changes
+DESCRIPTION: As a user, I want the statistics to be updated whenever an expense is added, modified, or deleted, so that I have accurate financial data.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E006
+TITLE: Search and Filtering
+
+[USER_STORY_START]
+ID: US030
+TITLE: Search expenses by description
+DESCRIPTION: As a user, I want to search expenses by description, so that I can quickly find specific records.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US031
+TITLE: Filter expenses by category
+DESCRIPTION: As a user, I want to filter expenses by category, so that I can view expenses in a specific category.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US032
+TITLE: Filter expenses by date range
+DESCRIPTION: As a user, I want to filter expenses by date range, so that I can view expenses within a specific time period.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US033
+TITLE: Filter expenses by minimum and maximum amount
+DESCRIPTION: As a user, I want to filter expenses by minimum and maximum amount, so that I can view expenses within a specific financial range.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US034
+TITLE: Combine multiple filters
+DESCRIPTION: As a user, I want to combine multiple filters in a single search, so that I can narrow down my search results.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US035
+TITLE: Clear all active filters
+DESCRIPTION: As a user, I want to clear all active filters, so that I can view all expenses again.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E007
+TITLE: Data Persistence and Reliability
+
+[USER_STORY_START]
+ID: US036
+TITLE: Store data locally
+DESCRIPTION: As a user, I want all my financial records to be stored locally, so that I can use the application offline.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US037
+TITLE: Maintain data availability
+DESCRIPTION: As a user, I want my financial records to remain available after closing and reopening the application, so that I can continue managing my expenses.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US038
+TITLE: Prevent partial operation inconsistencies
+DESCRIPTION: As a user, I want the application to prevent partially completed operations from leaving financial records inconsistent, so that I can maintain accurate financial data.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US039
+TITLE: Automatically preserve data on successful save
+DESCRIPTION: As a user, I want the application to automatically preserve data when changes are successfully saved, so that I do not lose any financial records.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E008
+TITLE: Data Export
+
+[USER_STORY_START]
+ID: US040
+TITLE: Export expense records to CSV
+DESCRIPTION: As a user, I want to export my expense records to a CSV file, so that I can share or backup my financial data.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US041
+TITLE: Export all expenses or filtered expenses
+DESCRIPTION: As a user, I want to export all expenses or only expenses matching the currently selected filters, so that I can export specific data.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US042
+TITLE: Notify export success or failure
+DESCRIPTION: As a user, I want the application to notify me when an export succeeds or fails, so that I know the status of my export operation.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E009
+TITLE: User Interface
+
+[USER_STORY_START]
+ID: US043
+TITLE: Separate sections for different features
+DESCRIPTION: As a user, I want the application to contain separate sections for different features, so that I can easily access the functionality I need.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US044
+TITLE: Validate mandatory fields
+DESCRIPTION: As a user, I want the application to validate mandatory fields and display understandable error messages, so that I can input valid data.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US045
+TITLE: Provide confirmation messages
+DESCRIPTION: As a user, I want successful operations to provide confirmation messages, so that I know my actions have been completed.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US046
+TITLE: Distinguish between normal spending, budget warnings, and exceeded budgets
+DESCRIPTION: As a user, I want the application to clearly distinguish between normal spending, budget warnings, and exceeded budgets, so that I can easily identify my financial status.
+[USER_STORY_END]
+
+[EPIC_END]
+
+
+
+
+
+
+
+
+
+

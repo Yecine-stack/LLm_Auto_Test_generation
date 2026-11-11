@@ -1,0 +1,441 @@
+```java
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class HabitTrackerTest {
+
+    private HabitTracker habitTracker;
+
+    @BeforeEach
+    public void setUp() {
+        habitTracker = new HabitTracker();
+    }
+
+    @Test
+    public void US016_DisplayBestCurrentStreak_NoHabits() {
+        // Given
+        // No habits are created
+
+        // When
+        int bestStreak = habitTracker.getBestCurrentStreak();
+
+        // Then
+        assertEquals(0, bestStreak);
+    }
+
+    @Test
+    public void US016_DisplayBestCurrentStreak_OneHabitNoCompletion() {
+        // Given
+        habitTracker.createHabit("Exercise", "Fitness", "daily");
+
+        // When
+        int bestStreak = habitTracker.getBestCurrentStreak();
+
+        // Then
+        assertEquals(0, bestStreak);
+    }
+
+    @Test
+    public void US016_DisplayBestCurrentStreak_OneHabitOneCompletion() {
+        // Given
+        habitTracker.createHabit("Exercise", "Fitness", "daily");
+        habitTracker.markHabitCompleted("Exercise");
+
+        // When
+        int bestStreak = habitTracker.getBestCurrentStreak();
+
+        // Then
+        assertEquals(1, bestStreak);
+    }
+
+    @Test
+    public void US016_DisplayBestCurrentStreak_MultipleHabits() {
+        // Given
+        habitTracker.createHabit("Exercise", "Fitness", "daily");
+        habitTracker.createHabit("Read", "Personal Development", "daily");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Read");
+
+        // When
+        int bestStreak = habitTracker.getBestCurrentStreak();
+
+        // Then
+        assertEquals(1, bestStreak);
+    }
+
+    @Test
+    public void US016_DisplayBestCurrentStreak_MultipleDaysCompletion() {
+        // Given
+        habitTracker.createHabit("Exercise", "Fitness", "daily");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+
+        // When
+        int bestStreak = habitTracker.getBestCurrentStreak();
+
+        // Then
+        assertEquals(3, bestStreak);
+    }
+
+    @Test
+    public void US016_DisplayBestCurrentStreak_InterruptedStreak() {
+        // Given
+        habitTracker.createHabit("Exercise", "Fitness", "daily");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.mark

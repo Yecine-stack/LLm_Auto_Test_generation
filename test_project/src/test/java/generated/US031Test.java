@@ -1,0 +1,87 @@
+package generated;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class US031Test {
+
+@Test
+    public void US031_duplicateHabitName() {
+        // Assume HabitManager has a method createHabit(String name, String category, String frequency, String description)
+        // and a method getHabitByName(String name) that returns a Habit object if it exists
+
+        // Create a habit with a name
+        HabitManager habitManager = new HabitManager();
+        habitManager.createHabit("Exercise", "Fitness", "daily", "");
+
+        // Attempt to create another habit with the same name
+        try {
+            habitManager.createHabit("Exercise", "Health", "weekly", "");
+            fail("Expected an exception for duplicate habit name");
+        } catch (Exception e) {
+            assertEquals("Habit with name 'Exercise' already exists", e.getMessage());
+        }
+    }
+
+    @Test
+    public void US031_emptyHabitName() {
+        HabitManager habitManager = new HabitManager();
+
+        try {
+            habitManager.createHabit("", "Fitness", "daily", "");
+            fail("Expected an exception for empty habit name");
+        } catch (Exception e) {
+            assertEquals("Habit name cannot be empty", e.getMessage());
+        }
+    }
+
+    @Test
+    public void US031_validHabitCreation() {
+        HabitManager habitManager = new HabitManager();
+
+        try {
+            habitManager.createHabit("Read", "Personal Development", "daily", "Read for at least 30 minutes");
+        } catch (Exception e) {
+            fail("Unexpected exception for valid habit creation: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void US031_editHabitNameConflict() {
+        HabitManager habitManager = new HabitManager();
+        habitManager.createHabit("Read", "Personal Development", "daily", "Read for at least 30 minutes");
+
+        try {
+            habitManager.editHabit("Read", "Write", "Fitness", "daily", "Write for at least 30 minutes");
+            fail("Expected an exception for duplicate habit name");
+        } catch (Exception e) {
+            assertEquals("Habit with name 'Write' already exists", e.getMessage());
+        }
+    }
+
+    @Test
+    public void US031_editHabitNameEmpty() {
+        HabitManager habitManager = new HabitManager();
+        habitManager.createHabit("Read", "Personal Development", "daily", "Read for at least 30 minutes");
+
+        try {
+            habitManager.editHabit("Read", "", "Fitness", "daily", "Read for at least 30 minutes");
+            fail("Expected an exception for empty habit name");
+        } catch (Exception e) {
+            assertEquals("Habit name cannot be empty", e.getMessage());
+        }
+    }
+
+    @Test
+    public void US031_editHabitSuccess() {
+        HabitManager habitManager = new HabitManager();
+        habitManager.createHabit("Read", "Personal Development", "daily", "Read for at least 30 minutes");
+
+        try {
+            habitManager.editHabit("Read", "Read", "Health", "daily", "Read for at least 30 minutes");
+        } catch (Exception e) {
+            fail("Unexpected exception for valid habit edit: " + e.getMessage());
+        }
+    }
+
+}

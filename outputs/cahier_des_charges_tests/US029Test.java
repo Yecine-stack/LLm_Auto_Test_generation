@@ -1,0 +1,88 @@
+package generated;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+
+public class US029Test {
+
+private HabitTracker habitTracker;
+
+    @BeforeEach
+    public void setUp() {
+        habitTracker = new HabitTracker();
+    }
+
+    @Test
+    public void US029_CreateHabit_Success() {
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Stay hydrated");
+        assertTrue(habitTracker.getHabit("Drink Water") != null);
+    }
+
+    @Test
+    public void US029_CreateHabit_DuplicateName_Failure() {
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Stay hydrated");
+        assertThrows(IllegalArgumentException.class, () -> {
+            habitTracker.createHabit("Drink Water", "Health", "Daily", "Stay hydrated");
+        });
+    }
+
+    @Test
+    public void US029_CreateHabit_EmptyName_Failure() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            habitTracker.createHabit("", "Health", "Daily", "Stay hydrated");
+        });
+    }
+
+    @Test
+    public void US029_EditHabit_Success() {
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Stay hydrated");
+        habitTracker.editHabit("Drink Water", "Drink Water", "Health", "Daily", "Stay hydrated more");
+        assertEquals("Stay hydrated more", habitTracker.getHabit("Drink Water").getDescription());
+    }
+
+    @Test
+    public void US029_EditHabit_ChangeName_Success() {
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Stay hydrated");
+        habitTracker.editHabit("Drink Water", "Drink Water Again", "Health", "Daily", "Stay hydrated more");
+        assertTrue(habitTracker.getHabit("Drink Water Again") != null);
+        assertNull(habitTracker.getHabit("Drink Water"));
+    }
+
+    @Test
+    public void US029_DeleteHabit_Success() {
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Stay hydrated");
+        habitTracker.deleteHabit("Drink Water");
+        assertNull(habitTracker.getHabit("Drink Water"));
+    }
+
+    @Test
+    public void US029_CompleteHabit_Success() {
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Stay hydrated");
+        habitTracker.completeHabit("Drink Water");
+        assertTrue(habitTracker.getHabit("Drink Water").isCompletedToday());
+    }
+
+    @Test
+    public void US029_CompleteHabit_MultipleTimes_Failure() {
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Stay hydrated");
+        habitTracker.completeHabit("Drink Water");
+        habitTracker.completeHabit("Drink Water");
+        assertFalse(habitTracker.getHabit("Drink Water").isCompletedToday());
+    }
+
+    @Test
+    public void US029_UndoCompletion_Success() {
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Stay hydrated");
+        habitTracker.completeHabit("Drink Water");
+        habitTracker.undoCompletion("Drink Water");
+        assertFalse(habitTracker.getHabit("Drink Water").isCompletedToday());
+    }
+
+    @Test
+    public void US029_DisplayConfirmationMessages_Success() {
+        habitTracker.createHabit("Drink Water", "Health", "Daily", "Stay hydrated");
+        assertTrue(habitTracker.getConfirmationMessage().contains("Habit created successfully"));
+    }
+
+}

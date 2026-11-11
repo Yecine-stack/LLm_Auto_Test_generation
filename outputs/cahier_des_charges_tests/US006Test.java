@@ -1,0 +1,96 @@
+package generated;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+
+public class US006Test {
+
+private HabitTracker habitTracker;
+
+    @BeforeEach
+    public void setUp() {
+        habitTracker = new HabitTracker();
+    }
+
+    @Test
+    public void US006_markHabitAsCompleted_success() {
+        // Arrange
+        String habitName = "Drink Water";
+        habitTracker.createHabit(habitName, "Daily", null);
+
+        // Act
+        habitTracker.markHabitAsCompleted(habitName);
+
+        // Assert
+        assertTrue(habitTracker.isHabitCompletedToday(habitName));
+    }
+
+    @Test
+    public void US006_markHabitAsCompleted_twice_sameDay_failure() {
+        // Arrange
+        String habitName = "Drink Water";
+        habitTracker.createHabit(habitName, "Daily", null);
+        habitTracker.markHabitAsCompleted(habitName);
+
+        // Act & Assert
+        assertThrows(IllegalStateException.class, () -> habitTracker.markHabitAsCompleted(habitName));
+    }
+
+    @Test
+    public void US006_markHabitAsCompleted_twice_differentDays_success() {
+        // Arrange
+        String habitName = "Drink Water";
+        habitTracker.createHabit(habitName, "Daily", null);
+        habitTracker.markHabitAsCompleted(habitName);
+
+        // Move to the next day
+        habitTracker.advanceDay();
+
+        // Act
+        habitTracker.markHabitAsCompleted(habitName);
+
+        // Assert
+        assertTrue(habitTracker.isHabitCompletedToday(habitName));
+    }
+
+    @Test
+    public void US006_undoHabitCompletion_success() {
+        // Arrange
+        String habitName = "Drink Water";
+        habitTracker.createHabit(habitName, "Daily", null);
+        habitTracker.markHabitAsCompleted(habitName);
+
+        // Act
+        habitTracker.undoHabitCompletion(habitName);
+
+        // Assert
+        assertFalse(habitTracker.isHabitCompletedToday(habitName));
+    }
+
+    @Test
+    public void US006_undoHabitCompletion_twice_success() {
+        // Arrange
+        String habitName = "Drink Water";
+        habitTracker.createHabit(habitName, "Daily", null);
+        habitTracker.markHabitAsCompleted(habitName);
+        habitTracker.undoHabitCompletion(habitName);
+
+        // Act
+        habitTracker.undoHabitCompletion(habitName);
+
+        // Assert
+        assertFalse(habitTracker.isHabitCompletedToday(habitName));
+    }
+
+    @Test
+    public void US006_undoHabitCompletion_noCompletion_failure() {
+        // Arrange
+        String habitName = "Drink Water";
+        habitTracker.createHabit(habitName, "Daily", null);
+
+        // Act & Assert
+        assertThrows(IllegalStateException.class, () -> habitTracker.undoHabitCompletion(habitName));
+    }
+
+}

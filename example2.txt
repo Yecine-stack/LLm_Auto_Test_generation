@@ -1,0 +1,227 @@
+[EPIC_START]
+ID: E001
+TITLE: Habit Management
+
+[USER_STORY_START]
+ID: US001
+TITLE: Create a habit
+DESCRIPTION: As a user, I want to create a habit by providing a name, category, target frequency, and optional description, so that I can start tracking my daily progress.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US002
+TITLE: Edit a habit
+DESCRIPTION: As a user, I want to edit an existing habit's name, category, target frequency, and description, so that I can adjust my tracking as needed.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US003
+TITLE: Delete a habit
+DESCRIPTION: As a user, I want to delete an existing habit, so that I can remove habits I no longer want to track.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US004
+TITLE: Prevent duplicate habit names
+DESCRIPTION: As a user, I want to prevent creating two habits with the same name, so that I can avoid confusion and errors.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US005
+TITLE: Ensure habit names are not empty
+DESCRIPTION: As a user, I want habit names to be non-empty, so that I can clearly identify my habits.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E002
+TITLE: Daily Tracking
+
+[USER_STORY_START]
+ID: US006
+TITLE: Mark a habit as completed
+DESCRIPTION: As a user, I want to mark a habit as completed for the current day, so that I can track my progress.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US007
+TITLE: Undo today's completion
+DESCRIPTION: As a user, I want to undo today's completion if it was recorded by mistake, so that I can correct any errors.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US008
+TITLE: Prevent multiple completions on the same day
+DESCRIPTION: As a user, I want to prevent marking a habit as completed more than once on the same day, so that I can accurately track my progress.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US009
+TITLE: Automatically record completion date
+DESCRIPTION: As a user, I want the application to automatically record the completion date, so that I don't have to manually enter it.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E003
+TITLE: Streaks and Statistics
+
+[USER_STORY_START]
+ID: US010
+TITLE: Calculate current streak
+DESCRIPTION: As a user, I want the application to calculate my current streak, so that I can see how many consecutive days I have completed a habit.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US011
+TITLE: Calculate longest streak
+DESCRIPTION: As a user, I want the application to calculate my longest streak, so that I can see the highest number of consecutive days I have completed a habit.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US012
+TITLE: Calculate total completions
+DESCRIPTION: As a user, I want the application to calculate the total number of times I have completed a habit, so that I can see my overall progress.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US013
+TITLE: Calculate completion rate
+DESCRIPTION: As a user, I want the application to calculate the completion rate, so that I can see the percentage of days I have completed a habit.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US014
+TITLE: Display total active habits
+DESCRIPTION: As a user, I want the dashboard to display the total number of active habits, so that I can see how many habits I am currently tracking.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US015
+TITLE: Display habits completed today
+DESCRIPTION: As a user, I want the dashboard to display the number of habits I have completed today, so that I can see my progress for the day.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US016
+TITLE: Display habits missed today
+DESCRIPTION: As a user, I want the dashboard to display the number of habits I have missed today, so that I can see areas where I need improvement.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US017
+TITLE: Display best current streak
+DESCRIPTION: As a user, I want the dashboard to display the best current streak, so that I can see my highest streak.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US018
+TITLE: Update statistics immediately
+DESCRIPTION: As a user, I want the statistics to update immediately after any change, so that I can see the most up-to-date information.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E004
+TITLE: Calendar History
+
+[USER_STORY_START]
+ID: US019
+TITLE: View calendar showing completed and missed days
+DESCRIPTION: As a user, I want to view a calendar showing completed and missed days for each habit, so that I can see my progress over time.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US020
+TITLE: Ensure past records remain available
+DESCRIPTION: As a user, I want past records to remain available even after editing a habit's description or category, so that I can review my history.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US021
+TITLE: Restrict editing of historical records
+DESCRIPTION: As a user, I want to restrict editing of completion records older than seven days, so that I can maintain accurate historical data.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E005
+TITLE: Notifications
+
+[USER_STORY_START]
+ID: US022
+TITLE: Configure daily reminder time
+DESCRIPTION: As a user, I want to configure a daily reminder time, so that I don't forget to complete my habits.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US023
+TITLE: Display reminder notification
+DESCRIPTION: As a user, I want the application to display a reminder notification at the configured time, so that I don't forget to complete my habits.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US024
+TITLE: Disable notifications
+DESCRIPTION: As a user, I want to disable notifications if I don't want to be reminded, so that I can focus on my habits without interruptions.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US025
+TITLE: Apply reminder time change immediately
+DESCRIPTION: As a user, I want the reminder time change to apply immediately, so that I can set a new reminder time without waiting for the next day.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E006
+TITLE: Data Storage
+
+[USER_STORY_START]
+ID: US026
+TITLE: Store data locally
+DESCRIPTION: As a user, I want all data to be stored locally, so that it remains available after restarting the application.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US027
+TITLE: Recover previously saved data
+DESCRIPTION: As a user, I want the application to recover previously saved data automatically when launched, so that I don't lose any progress.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US028
+TITLE: Handle failed operations
+DESCRIPTION: As a user, I want the application to handle failed operations without leaving data in an inconsistent state, so that I can continue using the application without issues.
+[USER_STORY_END]
+
+[EPIC_END]
+
+[EPIC_START]
+ID: E007
+TITLE: User Interface
+
+[USER_STORY_START]
+ID: US029
+TITLE: Include separate sections
+DESCRIPTION: As a user, I want the application to include separate sections for Dashboard, Habits, Calendar, Statistics, and Settings, so that I can easily access different features.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US030
+TITLE: Display confirmation messages
+DESCRIPTION: As a user, I want successful operations to display confirmation messages, so that I know my actions have been completed.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US031
+TITLE: Clearly explain validation errors
+DESCRIPTION: As a user, I want validation errors to clearly explain what went wrong, so that I can correct any issues.
+[USER_STORY_END]
+
+[EPIC_END]

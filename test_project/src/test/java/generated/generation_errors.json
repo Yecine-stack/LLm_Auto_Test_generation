@@ -1,0 +1,12 @@
+[
+    {
+        "story_id": "US010",
+        "story_title": "Calculate current streak",
+        "error": "Could not find the closing brace of the generated Java class."
+    },
+    {
+        "story_id": "US017",
+        "story_title": "Display best current streak",
+        "error": "Could not find the closing brace of the generated Java class."
+    }
+]

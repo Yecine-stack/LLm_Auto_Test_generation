@@ -1,0 +1,68 @@
+```java
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class HabitTrackerTest {
+
+    private HabitTracker habitTracker;
+
+    @BeforeEach
+    public void setUp() {
+        habitTracker = new HabitTracker();
+    }
+
+    @Test
+    public void US014_DisplayHabitsCompletedToday_NoHabitsCompleted() {
+        // Arrange
+        // No habits are completed
+
+        // Act
+        int habitsCompletedToday = habitTracker.getHabitsCompletedToday();
+
+        // Assert
+        assertEquals(0, habitsCompletedToday);
+    }
+
+    @Test
+    public void US014_DisplayHabitsCompletedToday_OneHabitCompleted() {
+        // Arrange
+        habitTracker.completeHabit("Exercise");
+        habitTracker.completeHabit("Meditate");
+
+        // Act
+        int habitsCompletedToday = habitTracker.getHabitsCompletedToday();
+
+        // Assert
+        assertEquals(2, habitsCompletedToday);
+    }
+
+    @Test
+    public void US014_DisplayHabitsCompletedToday_HabitCompletedYesterday() {
+        // Arrange
+        habitTracker.completeHabit("Exercise");
+        habitTracker.completeHabit("Meditate");
+        habitTracker.undoCompletion("Exercise");
+
+        // Act
+        int habitsCompletedToday = habitTracker.getHabitsCompletedToday();
+
+        // Assert
+        assertEquals(1, habitsCompletedToday);
+    }
+
+    @Test
+    public void US014_DisplayHabitsCompletedToday_HabitCompletedMultipleTimes() {
+        // Arrange
+        habitTracker.completeHabit("Exercise");
+        habitTracker.completeHabit("Meditate");
+        habitTracker.completeHabit("Exercise");
+
+        // Act
+        int habitsCompletedToday = habitTracker.getHabitsCompletedToday();
+
+        // Assert
+        assertEquals(2, habitsCompletedToday);
+    }
+}
+```

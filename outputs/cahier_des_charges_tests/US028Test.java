@@ -1,0 +1,129 @@
+package generated;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+
+public class US028Test {
+
+private HabitTracker habitTracker;
+
+    @BeforeEach
+    public void setUp() {
+        habitTracker = new HabitTracker();
+    }
+
+    @Test
+    public void US028_CreateHabit_Success() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        assertTrue(habitTracker.getHabit("Drink Water") != null);
+    }
+
+    @Test
+    public void US028_CreateHabit_DuplicateName_Failure() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        assertThrows(IllegalArgumentException.class, () -> {
+            habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        });
+    }
+
+    @Test
+    public void US028_CreateHabit_EmptyName_Failure() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            habitTracker.createHabit("", "Daily", "Stay hydrated");
+        });
+    }
+
+    @Test
+    public void US028_EditHabit_Success() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        habitTracker.editHabit("Drink Water", "Drink Water", "Daily", "Stay hydrated more");
+        assertEquals("Stay hydrated more", habitTracker.getHabit("Drink Water").getDescription());
+    }
+
+    @Test
+    public void US028_EditHabit_ChangeName_Success() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        habitTracker.editHabit("Drink Water", "Drink Water Again", "Daily", "Stay hydrated more");
+        assertTrue(habitTracker.getHabit("Drink Water Again") != null);
+    }
+
+    @Test
+    public void US028_DeleteHabit_Success() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        habitTracker.deleteHabit("Drink Water");
+        assertNull(habitTracker.getHabit("Drink Water"));
+    }
+
+    @Test
+    public void US028_MarkHabitCompleted_Success() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        habitTracker.markHabitCompleted("Drink Water");
+        assertTrue(habitTracker.getHabit("Drink Water").isCompletedToday());
+    }
+
+    @Test
+    public void US028_MarkHabitCompleted_MultipleTimes_Failure() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        habitTracker.markHabitCompleted("Drink Water");
+        habitTracker.markHabitCompleted("Drink Water");
+        assertFalse(habitTracker.getHabit("Drink Water").isCompletedToday());
+    }
+
+    @Test
+    public void US028_MarkHabitCompleted_Undo_Success() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        habitTracker.markHabitCompleted("Drink Water");
+        habitTracker.undoHabitCompletion("Drink Water");
+        assertFalse(habitTracker.getHabit("Drink Water").isCompletedToday());
+    }
+
+    @Test
+    public void US028_ViewStreaksAndStatistics_Success() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        habitTracker.markHabitCompleted("Drink Water");
+        habitTracker.markHabitCompleted("Drink Water");
+        assertEquals(2, habitTracker.getCurrentStreak());
+        assertEquals(2, habitTracker.getLongestStreak());
+        assertEquals(2, habitTracker.getTotalCompletions());
+        assertEquals(1.0, habitTracker.getCompletionRate());
+    }
+
+    @Test
+    public void US028_ViewCalendarHistory_Success() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        habitTracker.markHabitCompleted("Drink Water");
+        assertTrue(habitTracker.getCalendarHistory("Drink Water").containsKey(LocalDate.now()));
+    }
+
+    @Test
+    public void US028_ViewCalendarHistory_OldRecords_Failure() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        habitTracker.markHabitCompleted("Drink Water");
+        LocalDate oldDate = LocalDate.now().minusDays(8);
+        habitTracker.markHabitCompleted("Drink Water");
+        assertFalse(habitTracker.getCalendarHistory("Drink Water").containsKey(oldDate));
+    }
+
+    @Test
+    public void US028_ConfigureReminderTime_Success() {
+        habitTracker.setReminderTime(LocalTime.NOON);
+        assertEquals(LocalTime.NOON, habitTracker.getReminderTime());
+    }
+
+    @Test
+    public void US028_ConfigureReminderTime_Disabled_Success() {
+        habitTracker.setReminderTime(null);
+        assertNull(habitTracker.getReminderTime());
+    }
+
+    @Test
+    public void US028_DataPersistence_Success() {
+        habitTracker.createHabit("Drink Water", "Daily", "Stay hydrated");
+        habitTracker.markHabitCompleted("Drink Water");
+        habitTracker = new HabitTracker();
+        assertTrue(habitTracker.getHabit("Drink Water") != null);
+        assertTrue(habitTracker.getHabit("Drink Water").isCompletedToday());
+    }
+
+}

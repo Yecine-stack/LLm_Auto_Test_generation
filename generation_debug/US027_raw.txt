@@ -1,0 +1,133 @@
+```java
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class HabitTrackerTest {
+
+    @Test
+    public void US027_handleFailedOperationWhenCreatingDuplicateHabit() {
+        // Assume HabitManager is a class that manages habits
+        HabitManager habitManager = new HabitManager();
+
+        // Create a habit
+        habitManager.createHabit("Exercise", "Fitness", "daily", "Go for a run");
+
+        // Attempt to create a habit with the same name
+        try {
+            habitManager.createHabit("Exercise", "Fitness", "daily", "Go for a run");
+            fail("Expected an exception to be thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Habit name already exists", e.getMessage());
+        }
+    }
+
+    @Test
+    public void US027_handleFailedOperationWhenCreatingHabitWithEmptyName() {
+        HabitManager habitManager = new HabitManager();
+
+        try {
+            habitManager.createHabit("", "Fitness", "daily", "Go for a run");
+            fail("Expected an exception to be thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Habit name cannot be empty", e.getMessage());
+        }
+    }
+
+    @Test
+    public void US027_handleFailedOperationWhenMarkingHabitAsCompletedMultipleTimes() {
+        HabitManager habitManager = new HabitManager();
+        habitManager.createHabit("Exercise", "Fitness", "daily", "Go for a run");
+
+        habitManager.markHabitAsCompleted("Exercise");
+        habitManager.markHabitAsCompleted("Exercise");
+
+        // Assuming getHabitCompletionCount returns the number of times a habit has been completed
+        assertEquals(1, habitManager.getHabitCompletionCount("Exercise"));
+    }
+
+    @Test
+    public void US027_handleFailedOperationWhenEditingHabitDescription() {
+        HabitManager habitManager = new HabitManager();
+        habitManager.createHabit("Exercise", "Fitness", "daily", "Go for a run");
+
+        // Edit the habit description
+        habitManager.editHabitDescription("Exercise", "Go for a bike ride");
+
+        // Assuming getHabitDescription returns the current description of a habit
+        assertEquals("Go for a bike ride", habitManager.getHabitDescription("Exercise"));
+    }
+
+    @Test
+    public void US027_handleFailedOperationWhenEditingHabitCategory() {
+        HabitManager habitManager = new HabitManager();
+        habitManager.createHabit("Exercise", "Fitness", "daily", "Go for a run");
+
+        // Edit the habit category
+        habitManager.editHabitCategory("Exercise", "Health");
+
+        // Assuming getHabitCategory returns the current category of a habit
+        assertEquals("Health", habitManager.getHabitCategory("Exercise"));
+    }
+
+    @Test
+    public void US027_handleFailedOperationWhenEditingHabitTargetFrequency() {
+        HabitManager habitManager = new HabitManager();
+        habitManager.createHabit("Exercise", "Fitness", "daily", "Go for a run");
+
+        // Edit the habit target frequency
+        habitManager.editHabitTargetFrequency("Exercise", "weekly");
+
+        // Assuming getHabitTargetFrequency returns the current target frequency of a habit
+        assertEquals("weekly", habitManager.getHabitTargetFrequency("Exercise"));
+    }
+
+    @Test
+    public void US027_handleFailedOperationWhenEditingHabitThatDoesNotExist() {
+        HabitManager habitManager = new HabitManager();
+
+        try {
+            habitManager.editHabitDescription("NonExistentHabit", "Go for a bike ride");
+            fail("Expected an exception to be thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Habit does not exist", e.getMessage());
+        }
+    }
+
+    @Test
+    public void US027_handleFailedOperationWhenDeletingHabitThatDoesNotExist() {
+        HabitManager habitManager = new HabitManager();
+
+        try {
+            habitManager.deleteHabit("NonExistentHabit");
+            fail("Expected an exception to be thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Habit does not exist", e.getMessage());
+        }
+    }
+
+    @Test
+    public void US027_handleFailedOperationWhenMarkingHabitAsCompletedForPastDay() {
+        HabitManager habitManager = new HabitManager();
+        habitManager.createHabit("Exercise", "Fitness", "daily", "Go for a run");
+
+        // Assuming markHabitAsCompletedForPastDay marks a habit as completed for a past day
+        habitManager.markHabitAsCompletedForPastDay("Exercise", 1);
+
+        // Assuming getHabitCompletionCount returns the number of times a habit has been completed
+        assertEquals(1, habitManager.getHabitCompletionCount("Exercise"));
+    }
+
+    @Test
+    public void US027_handleFailedOperationWhenMarkingHabitAsCompletedForPastDayThatIsTooOld() {
+        HabitManager habitManager = new HabitManager();
+        habitManager.createHabit("Exercise", "Fitness", "daily", "Go for a run");
+
+        try {
+            habitManager.markHabitAsCompletedForPastDay("Exercise", 8);
+            fail("Expected an exception to be thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Cannot edit habits older than 7 days", e.getMessage());
+        }
+    }
+}
+```

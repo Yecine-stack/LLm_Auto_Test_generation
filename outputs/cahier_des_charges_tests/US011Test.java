@@ -1,0 +1,53 @@
+package generated;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
+
+public class US011Test {
+
+private HabitTracker habitTracker;
+
+    @BeforeEach
+    public void setUp() {
+        habitTracker = new HabitTracker();
+    }
+
+    @Test
+    public void US011_CalculateTotalCompletions_InitialCompletionsZero() {
+        assertEquals(0, habitTracker.getTotalCompletions());
+    }
+
+    @Test
+    public void US011_CalculateTotalCompletions_OneCompletion() {
+        habitTracker.markHabitAsCompleted("Habit1");
+        assertEquals(1, habitTracker.getTotalCompletions());
+    }
+
+    @Test
+    public void US011_CalculateTotalCompletions_MultipleCompletions() {
+        habitTracker.markHabitAsCompleted("Habit1");
+        habitTracker.markHabitAsCompleted("Habit1");
+        habitTracker.markHabitAsCompleted("Habit2");
+        assertEquals(3, habitTracker.getTotalCompletions());
+    }
+
+    @Test
+    public void US011_CalculateTotalCompletions_CompletionAfterDeletion() {
+        habitTracker.markHabitAsCompleted("Habit1");
+        habitTracker.deleteHabit("Habit1");
+        habitTracker.markHabitAsCompleted("Habit1");
+        assertEquals(1, habitTracker.getTotalCompletions());
+    }
+
+    @Test
+    public void US011_CalculateTotalCompletions_CompletionAfterUndo() {
+        habitTracker.markHabitAsCompleted("Habit1");
+        habitTracker.undoCompletion("Habit1");
+        habitTracker.markHabitAsCompleted("Habit1");
+        assertEquals(1, habitTracker.getTotalCompletions());
+    }
+
+}

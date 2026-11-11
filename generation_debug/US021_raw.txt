@@ -1,0 +1,67 @@
+```java
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class NotificationConfigTest {
+
+    private NotificationConfig notificationConfig;
+
+    @BeforeEach
+    public void setUp() {
+        notificationConfig = new NotificationConfig();
+    }
+
+    @Test
+    public void US021_configureReminderTime_validTime() {
+        // Arrange
+        LocalTime validTime = LocalTime.of(12, 0);
+
+        // Act
+        notificationConfig.configureReminderTime(validTime);
+
+        // Assert
+        assertEquals(validTime, notificationConfig.getReminderTime());
+    }
+
+    @Test
+    public void US021_configureReminderTime_nullTime() {
+        // Arrange
+        LocalTime nullTime = null;
+
+        // Act & Assert
+        assertThrows(NullPointerException.class, () -> {
+            notificationConfig.configureReminderTime(nullTime);
+        });
+    }
+
+    @Test
+    public void US021_configureReminderTime_invalidTime() {
+        // Arrange
+        LocalTime invalidTime = LocalTime.of(25, 0);
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> {
+            notificationConfig.configureReminderTime(invalidTime);
+        });
+    }
+
+    @Test
+    public void US021_getReminderTime_defaultTime() {
+        // Arrange
+        LocalTime defaultTime = LocalTime.of(9, 0);
+
+        // Act
+        notificationConfig.configureReminderTime(defaultTime);
+
+        // Assert
+        assertEquals(defaultTime, notificationConfig.getReminderTime());
+    }
+
+    @Test
+    public void US021_getReminderTime_noConfiguration() {
+        // Act & Assert
+        assertNull(notificationConfig.getReminderTime());
+    }
+}
+```

@@ -1,0 +1,86 @@
+package generated;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
+
+public class US012Test {
+
+private HabitTracker habitTracker;
+
+    @BeforeEach
+    public void setUp() {
+        habitTracker = new HabitTracker();
+    }
+
+    @Test
+    public void US012_CalculateCompletionRate_NoHabits() {
+        // Arrange
+        // No habits created
+
+        // Act
+        double completionRate = habitTracker.calculateCompletionRate();
+
+        // Assert
+        assertEquals(0.0, completionRate, "Completion rate should be 0.0 when no habits are created");
+    }
+
+    @Test
+    public void US012_CalculateCompletionRate_OneHabitCompleted() {
+        // Arrange
+        habitTracker.createHabit("Exercise", "Daily", "Go for a run every day");
+        habitTracker.markHabitCompleted("Exercise");
+
+        // Act
+        double completionRate = habitTracker.calculateCompletionRate();
+
+        // Assert
+        assertEquals(1.0, completionRate, "Completion rate should be 1.0 when one habit is completed");
+    }
+
+    @Test
+    public void US012_CalculateCompletionRate_OneHabitMissed() {
+        // Arrange
+        habitTracker.createHabit("Exercise", "Daily", "Go for a run every day");
+        // No completion recorded
+
+        // Act
+        double completionRate = habitTracker.calculateCompletionRate();
+
+        // Assert
+        assertEquals(0.0, completionRate, "Completion rate should be 0.0 when one habit is missed");
+    }
+
+    @Test
+    public void US012_CalculateCompletionRate_MultipleHabits() {
+        // Arrange
+        habitTracker.createHabit("Exercise", "Daily", "Go for a run every day");
+        habitTracker.createHabit("Read", "Daily", "Read a book every day");
+        habitTracker.markHabitCompleted("Exercise");
+        habitTracker.markHabitCompleted("Read");
+
+        // Act
+        double completionRate = habitTracker.calculateCompletionRate();
+
+        // Assert
+        assertEquals(1.0, completionRate, "Completion rate should be 1.0 when all habits are completed");
+    }
+
+    @Test
+    public void US012_CalculateCompletionRate_MultipleHabits_MixedCompletion() {
+        // Arrange
+        habitTracker.createHabit("Exercise", "Daily", "Go for a run every day");
+        habitTracker.createHabit("Read", "Daily", "Read a book every day");
+        habitTracker.markHabitCompleted("Exercise");
+        // No completion recorded for "Read"
+
+        // Act
+        double completionRate = habitTracker.calculateCompletionRate();
+
+        // Assert
+        assertEquals(0.5, completionRate, "Completion rate should be 0.5 when one habit is completed and one is missed");
+    }
+
+}

@@ -1,0 +1,38 @@
+﻿Work type,Summary,Description,Work item ID,Parent
+Epic,Habit Management,,1,
+Story,Create a habit,"As a user, I want to create a habit by providing a name, category, target frequency, and optional description, so that I can start tracking my habits.",2,1
+Story,Edit a habit,"As a user, I want to edit an existing habit's name, category, target frequency, and description, so that I can update my habit details.",3,1
+Story,Delete a habit,"As a user, I want to delete an existing habit, so that I can remove habits I no longer want to track.",4,1
+Story,Prevent duplicate habit names,"As a user, I want to prevent creating two habits with the same name, so that I can avoid confusion and duplication.",5,1
+Story,Ensure habit names are not empty,"As a user, I want habit names to be non-empty, so that I can create meaningful habits.",6,1
+Epic,Daily Tracking,,7,
+Story,Mark a habit as completed,"As a user, I want to mark a habit as completed for the current day, so that I can track my progress.",8,7
+Story,Undo today's completion,"As a user, I want to undo today's completion if it was recorded by mistake, so that I can correct my tracking.",9,7
+Story,Automatically record completion date,"As a user, I want the application to automatically record the completion date, so that I don't have to manually enter it.",10,7
+Epic,Streaks and Statistics,,11,
+Story,Calculate current streak,"As a user, I want the application to calculate my current streak, so that I can see how many consecutive days I have completed a habit.",12,11
+Story,Calculate longest streak,"As a user, I want the application to calculate my longest streak, so that I can see the highest number of consecutive days I have completed a habit.",13,11
+Story,Calculate total completions,"As a user, I want the application to calculate the total number of times I have completed a habit, so that I can see my overall progress.",14,11
+Story,Calculate completion rate,"As a user, I want the application to calculate my completion rate, so that I can see the percentage of days I have completed a habit.",15,11
+Story,Display total active habits,"As a user, I want the dashboard to display the total number of active habits, so that I can see how many habits I am currently tracking.",16,11
+Story,Display habits completed today,"As a user, I want the dashboard to display the number of habits I completed today, so that I can see my progress for the day.",17,11
+Story,Display habits missed today,"As a user, I want the dashboard to display the number of habits I missed today, so that I can see areas for improvement.",18,11
+Story,Display best current streak,"As a user, I want the dashboard to display my best current streak, so that I can see the highest streak I have achieved.",19,11
+Story,Update statistics immediately,"As a user, I want the statistics to update immediately after any change, so that I can see the most current data.",20,11
+Epic,Calendar History,,21,
+Story,View calendar showing completed and missed days,"As a user, I want to view a calendar showing completed and missed days for each habit, so that I can see my progress over time.",22,21
+Story,Ensure past records remain available,"As a user, I want past records to remain available even after editing a habit's description or category, so that I can review my history.",23,21
+Story,Restrict editing of historical records,"As a user, I want to restrict editing of completion records older than seven days, so that I can maintain accurate historical data.",24,21
+Epic,Notifications,,25,
+Story,Configure daily reminder time,"As a user, I want to configure a daily reminder time, so that I don't forget to complete my habits.",26,25
+Story,Display notification for daily reminder,"As a user, I want to receive a notification for my daily reminder, so that I am reminded to complete my habits.",27,25
+Story,Disable notifications,"As a user, I want to disable notifications if I don't want to be reminded, so that I can focus on my habits without interruptions.",28,25
+Story,Apply reminder time change immediately,"As a user, I want the reminder time change to apply immediately, so that I can adjust my schedule accordingly.",29,25
+Epic,Data Storage,,30,
+Story,Store data locally,"As a user, I want all data to be stored locally, so that it remains available after restarting the application.",31,30
+Story,Recover previously saved data,"As a user, I want the application to recover previously saved data automatically when launched, so that I don't lose my progress.",32,30
+Story,Handle failed operations,"As a user, I want the application to handle failed operations without leaving the data in an inconsistent state, so that I can continue using the application.",33,30
+Epic,User Interface,,34,
+Story,"Include separate sections for Dashboard, Habits, Calendar, Statistics, and Settings","As a user, I want the application to include separate sections for Dashboard, Habits, Calendar, Statistics, and Settings, so that I can easily access different features.",35,34
+Story,Display confirmation messages for successful operations,"As a user, I want confirmation messages to be displayed for successful operations, so that I know my actions have been completed.",36,34
+Story,Clearly explain validation errors,"As a user, I want validation errors to be clearly explained, so that I understand what went wrong and how to fix it.",37,34

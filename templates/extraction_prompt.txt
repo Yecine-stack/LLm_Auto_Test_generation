@@ -1,0 +1,58 @@
+Read the software requirements specification provided below and extract its epics and user stories.
+
+INSTRUCTIONS:
+
+1. Identify the main functional areas as epics.
+2. For each epic, identify its associated user stories.
+3. Write each user story using the format: "As a [user], I want [goal], so that [benefit]."
+4. Give every epic and user story a unique sequential ID:
+- Epics: E001, E002, E003...
+- User stories: US001, US002, US003...
+5. Only include information supported by the original specification.
+6. Do not invent features or requirements.
+7. Do not generate acceptance criteria, test cases, implementation details, or code.
+8. Do not reproduce or summarize the original specification.
+9. Do not include explanations, introductions, or conclusions.
+
+OUTPUT FORMAT:
+
+You MUST follow the exact structure below.
+
+For every epic, write:
+
+[EPIC_START]
+ID: E001
+TITLE: Epic title
+
+[USER_STORY_START]
+ID: US001
+TITLE: User story title
+DESCRIPTION: As a user, I want something, so that I can achieve something.
+[USER_STORY_END]
+
+[USER_STORY_START]
+ID: US002
+TITLE: Another user story title
+DESCRIPTION: As a user, I want something, so that I can achieve something.
+[USER_STORY_END]
+
+[EPIC_END]
+
+Repeat this structure for every epic.
+
+STRICT FORMATTING RULES:
+
+- Every marker must appear exactly as written.
+- Every field must occupy its own line.
+- Never put two fields on the same line.
+- Never omit an ID, title, or description.
+- Do not use Markdown headings, bullet points, numbering, tables, or code blocks.
+- Do not add any text outside the defined structure.
+- Do not change marker names.
+- Do not place additional markers inside field values.
+- Keep descriptions on a single line.
+- Do not include empty epics or empty user stories.
+
+SOFTWARE REQUIREMENTS SPECIFICATION:
+
+{specification}
